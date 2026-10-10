@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+  body {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 60px;
+     }
+  img {
+    width: 600px; 
+    max-width: 90%; 
+    border-radius: 10px; }
+
+</style>
+</head>
+<body>
+  <img id="imagem" src="" alt="">
+  <br>
+  <button id="anterior">Anterior</button>
+  <button id="proximo">Próxima</button>
+
+  <script>
+    const imagens = [
+      "https://picsum.photos/id/237/600/400",
+      "https://picsum.photos/id/238/600/400",
+      "https://picsum.photos/id/239/600/400",
+      "https://picsum.photos/id/240/600/400"
+    ];
+
+    let indice = 0;
+    const img = document.querySelector('#imagem');
+    img.src = imagens[indice];
+
+    function trocarImagem() {
+      indice = (indice + 1) % imagens.length;
+      img.src = imagens[indice];
+    }
+
+   
+    setInterval(trocarImagem, 5000);
+
+
+    document.querySelector('#proximo').addEventListener('click', trocarImagem);
+
+    document.querySelector('#anterior').addEventListener('click', () => {
+      indice = (indice - 1 + imagens.length) % imagens.length;
+      img.src = imagens[indice];
+    });
+  </script>
+</body>
+</html>

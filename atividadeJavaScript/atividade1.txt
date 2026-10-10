@@ -1,0 +1,1 @@
+o objetivo do JavaScript no frontend é dar comportamento à página, reagir a ações do usuário e atualizar a interface em tempo real, melhorando a experiência de uso sem depender de recarregar o servidor a cada interação.

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .imgcontainer {
+            width: 500px;
+            height: 500px;
+
+
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="imgcontainer">
+        <img src="https://imgs.search.brave.com/NH5rY1ysaY4iQKWWvHtlSf0RUQpVZzpxUE-38tlcAOk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvZ3Jh/dml0eS1mYWxscy1t/YWJlbC1waW5lcy1j/aGFyYWN0ZXItMDQy/ZHIwczNxNDdjcWVt/dy5qcGc" alt="">
+    </div>
+        <p> </p>
+        <button>trocar imagem</button>
+
+
+        <script>
+
+            const imagem = document.querySelector('img');
+
+            const paragrafo = document.querySelector('p');
+
+            const botao = document.querySelector('button');
+
+            imagem.onclick = clicou;
+
+            imagem.onmouseenter = entrou;
+
+            imagem.onmouseleave = saiu;
+
+            imagem.onmousemove = moveu;
+
+            function clicou(){
+            paragrafo.textContent = "para de me cutucar";
+        };
+
+        function entrou(){
+            paragrafo.textContent = "entrou!";
+        };
+
+        function moveu(){
+            paragrafo.textContent = "aonde voce esta indo?";
+        };
+
+        function saiu(){
+            paragrafo.textContent = "Não sai!";
+        };
+
+        botao.addEventListener('click', () => {
+            
+            if (imagem.src == "https://imgs.search.brave.com/NH5rY1ysaY4iQKWWvHtlSf0RUQpVZzpxUE-38tlcAOk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvZ3Jh/dml0eS1mYWxscy1t/YWJlbC1waW5lcy1j/aGFyYWN0ZXItMDQy/ZHIwczNxNDdjcWVt/dy5qcGc") {
+
+                imagem.src = "https://imgs.search.brave.com/E1zbwiNCDT4LsHOvCDeebiHvWHpwxMqDCWNjjIgAF4g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc1L2Y1/L2IxLzc1ZjViMTky/YzY2OGU0Y2FiNmIz/OTA4YzNmMGM3N2Y5/LmpwZw";
+
+            } else if (imagem.src == "https://imgs.search.brave.com/E1zbwiNCDT4LsHOvCDeebiHvWHpwxMqDCWNjjIgAF4g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc1L2Y1/L2IxLzc1ZjViMTky/YzY2OGU0Y2FiNmIz/OTA4YzNmMGM3N2Y5/LmpwZw") {
+
+                imagem.src = "https://imgs.search.brave.com/NH5rY1ysaY4iQKWWvHtlSf0RUQpVZzpxUE-38tlcAOk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvZ3Jh/dml0eS1mYWxscy1t/YWJlbC1waW5lcy1j/aGFyYWN0ZXItMDQy/ZHIwczNxNDdjcWVt/dy5qcGc";
+
+            }
+        });
+
+        </script>
+    </div>
+</body>
+</html>

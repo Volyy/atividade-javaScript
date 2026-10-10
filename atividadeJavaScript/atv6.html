@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 80px;
+      }
+      button {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+      h2 {
+        margin-top: 30px;
+        min-height: 40px;
+        color: #264653;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="gerar">Gerar nova aventura</button>
+    <h2 id="resultado">Clique no botão para gerar uma aventura!</h2>
+
+    <script>
+      const acoes = ["A Busca", "A Batalha", "O Resgate"];
+      const locais = [
+        "na Floresta Sombria",
+        "no Reino Perdido",
+        "na Montanha Misteriosa",
+      ];
+      const complementos = [
+        "do Dragão",
+        "do Tesouro Esquecido",
+        "da Espada Ancestral",
+      ];
+
+      const botao = document.querySelector("#gerar");
+      const titulo = document.querySelector("#resultado");
+
+      function sortear(array) {
+        let numAleatorio = Math.floor(Math.random() * array.length);
+        return numAleatorio;
+      }
+
+      botao.addEventListener("click", () => {
+        let acao_s = acoes[sortear(acoes)];
+        let lugar_s = locais[sortear(locais)];
+        let complemento_s = complementos[sortear(complementos)];
+
+        titulo.innerText = acao_s + " " + lugar_s + " " + complemento_s;
+      });
+    </script>
+  </body>
+</html>

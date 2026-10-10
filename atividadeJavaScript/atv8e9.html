@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+  body {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 60px;
+    background-color: #ffffff;
+    color: #1d1d1d;
+  }
+  body.escuro {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+  input, button {
+    padding: 10px;
+    font-size: 16px;
+  }
+  #frase {
+    font-size: 20px;
+    margin-top: 20px;
+    min-height: 30px;
+  }
+</style>
+</head>
+<body>
+  <h2>Digite um sabor de sorvete</h2>
+  <input type="text" id="campoTexto" placeholder="Digite aqui...">
+  <p id="frase"></p>
+
+  <br>
+  <button id="btnTema">Alternar modo escuro</button>
+
+  <script>
+    const campo = document.querySelector('#campoTexto');
+    const frase = document.querySelector('#frase');
+    const btnTema = document.querySelector('#btnTema');
+
+    campo.addEventListener('input', () => {
+      const texto = campo.value.trim().toLowerCase();
+
+      if (texto.length > 3) {
+        if (texto.includes('chocolate')) {
+          frase.textContent = 'Eu amo sorvete de chocolate!';
+        } else if (texto.includes('flocos')) {
+          frase.textContent = 'Ahh, mas chocolate é o meu favorito...';
+        } else {
+          frase.textContent = 'Ahh, eu esperava um sabor de sorvete...';
+        }
+      } else {
+        frase.textContent = '';
+      }
+    });
+
+    btnTema.addEventListener('click', () => {
+      document.body.classList.toggle('escuro');
+    });
+  </script>
+</body>
+</html>

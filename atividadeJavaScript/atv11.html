@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+    <style>
+        .container {
+            margin: 0 auto;
+
+            padding: 30px;
+
+            width: 30%;
+
+            display: flex;
+
+            align-items: center;
+
+            flex-direction: column;
+
+            border: 2px solid black;
+
+            border-radius: 10px;
+        }
+
+        h1,
+        h3 {
+
+            color: rgb(107, 2, 149);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cadastre-se</h1>
+        <div class="campo_nome">
+            <h3>Nome:</h3>
+            <input id="nome" type="text" value="" placeholder="Insira seu nome" />
+
+        </div>
+        <p id="mensagem_nome"></p>
+        <div class="campo_email">
+            <h3>Email:</h3>
+            <input id="email" type="email" value="" placeholder="Insira seu email" />
+
+        </div>
+        <p id="mensagem_email"></p>
+        <div class="campo_senha">
+            <h3>Senha:</h3>
+
+            <span class="olho_senha">
+                <input id="senha" type="password" value="" placeholder="Insira uma senha" />
+                <p id="olho"><i class="bi bi-eye-fill"></i></p>
+            </span>
+
+
+        </div>
+        <p id="mensagem_senha"></p>
+        <div class="campo_confirmacao">
+            <h3>Confirme a senha:</h3>
+
+            <span class="olho_conf">
+                <input id="confirmacao" type="password" value="" placeholder="Confirme sua senha" />
+                <p id="olho_2"><i class="bi bi-eye-fill"></i></p>
+            </span>
+
+
+        </div>
+        <p id="mensagem_confirmacao"></p>
+        <button>Enviar</button>
+    </div>
+
+    <script>
+
+        const nome = document.querySelector("#nome");
+        const email = document.querySelector("#email");
+        const senha = document.querySelector("#senha");
+        const confirmacao = document.querySelector("#confirmacao");
+        const olho = document.querySelector("#olho");
+        const olho_conf = document.querySelector("#olho_2");
+        const botao = document.querySelector("button");
+
+        const mensagem_nome = document.querySelector("#mensagem_nome");
+        const mensagem_email = document.querySelector("#mensagem_email");
+        const mensagem_senha = document.querySelector("#mensagem_senha");
+        const mensagem_confirmacao = document.querySelector("#mensagem_confirmacao");
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+        nome.addEventListener("input", () => {
+            if (nome.value.length < 3) {
+                mensagem_nome.textContent = "Informe pelo menos 3 caracteres.";
+            } else {
+                mensagem_nome.textContent = "";
+            }
+        });
+
+        email.addEventListener("input", () => {
+
+            if (!emailRegex.test(email.value)) {
+
+                mensagem_email.textContent = "Informe um email valido.";
+            } else if (emailRegex.test(email.value)) {
+
+                mensagem_email.textContent = "";
+            }
+
+        })
+
+        senha.addEventListener("input", () => {
+
+            if (!senhaRegex.test(senha.value)) {
+
+                mensagem_senha.textContent = "A senha não pode ter menos que 8 caracteres e deve conter pelo menos uma letra maiúscula, um número e um caractere especial.";
+
+            } else if (senhaRegex.test(senha.value)) {
+
+                mensagem_senha.textContent = "";
+
+            }
+
+        })
+
+        confirmacao.addEventListener("input", () => {
+
+            if (confirmacao.value !== senha.value) {
+                mensagem_confirmacao.textContent =
+                    "A senha deve ser idêntica à anterior.";
+            } else {
+                mensagem_confirmacao.textContent = "";
+            }
+        })
+
+        olho.addEventListener("click", () => {
+            if (senha.type === "password") {
+                senha.type = "text";
+            } else {
+                senha.type = "password";
+            }
+        });
+
+        olho_conf.addEventListener("click", () => {
+            if (confirmacao.type === "password") {
+                confirmacao.type = "text";
+            } else {
+                confirmacao.type = "password";
+            }
+        });
+
+    </script>
+</body>
+
+</html>

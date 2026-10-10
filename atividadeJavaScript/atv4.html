@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      body {
+        text-align: center;
+        margin-top: 80px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+      }
+      p {
+        font-size: 28px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p id="contador">0</p>
+    <button id="btnIncrementar">Incrementar</button>
+    <button id="btnZerar">Zerar</button>
+
+    <script>
+      let valor = 0;
+      const paragrafo = document.querySelector("#contador");
+
+      document
+        .querySelector("#btnIncrementar")
+        .addEventListener("click", () => {
+          valor++;
+          paragrafo.textContent = valor;
+        });
+
+      document.querySelector("#btnZerar").addEventListener("click", () => {
+        valor = 0;
+        paragrafo.textContent = valor;
+      });
+    </script>
+  </body>
+</html>

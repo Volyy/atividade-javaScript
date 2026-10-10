@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      body {
+        text-align: center;
+        margin-top: 60px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      ul {
+        display: inline-block;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Lista de Itens</h1>
+
+    <button id="btnAdicionar">Adicionar item</button>
+    <ul id="lista">
+      
+    </ul>
+
+    <script>
+      const lista = document.querySelector("#lista");
+      let contador = lista.children.length;
+
+      document.querySelector("#btnAdicionar").addEventListener("click", () => {
+        contador++;
+        const novoItem = document.createElement("li");
+        novoItem.textContent = `Item n° ${contador}`;
+        lista.appendChild(novoItem);
+      });
+    </script>
+  </body>
+</html>
